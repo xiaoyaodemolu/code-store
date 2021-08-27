@@ -1,5 +1,9 @@
+const path = require('path')
 const config = {
   projectName: 'codeStore',
+  alias: {
+      '@': path.relative(__dirname, '..', 'src')
+  },
   date: '2021-8-25',
   designWidth: 750,
   deviceRatio: {

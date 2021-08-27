@@ -1,37 +1,28 @@
-import Taro from '@tarojs/taro'
-import { Component } from 'react'
+import { useState } from 'react'
 import { View, Text, Button } from '@tarojs/components'
 import './index.scss'
+import utils from '@/utils/util'
 
-export default class Index extends Component {
+export default function Index() {
+    const [ text,setText ] = useState('点击。。')
+    const info = {
+        name: '',
+        time: '',
+        address: ''
+    }
+    
+    const saveInfo = async () => {
+        info.name = (await utils.login()).userInfo.nickName
+        info.address = (await utils.getLocation()).data.result.address
+        let date = new Date()
+        info.time = utils.formatDate(date)
 
-  componentWillMount() {
-
-  }
-
-  componentDidMount() { }
-
-  componentWillUnmount() { }
-
-  componentDidShow() { }
-
-  componentDidHide() { }
-
-  dianji = () => {
-    Taro.getUserProfile({
-      lang: 'zh_CN',
-      desc: '我要信息',
-      success: (res) => {
-        console.log('9898个人信息',res)
-      }
-    })
-  }
-  render() {
+        console.log('9898info结果6677',info)
+    }
     return (
-      <View className='index'>
-        <Text>临猗县一带一路发展战略合作合办-创业发展协会正式启动！！！</Text>
-        <Button onClick={this.dianji}>点击</Button>
-      </View>
+        <View className='index'>
+            <Text>二维码商店</Text>
+            <Button onClick={saveInfo}>点击</Button>
+        </View>
     )
-  }
 }

@@ -4,38 +4,44 @@ import './app.scss'
 
 class App extends Component {
 
-  componentDidMount () {
-    if(process.env.TARO_ENV === 'weapp'){
-      Taro.login({
-        success: (res) => {
-          Taro.setStorageSync('loginCode', res.code)
+    componentDidMount() {
+        if (process.env.TARO_ENV === 'weapp') {
+            //获取登录code
+            Taro.login({
+                success: (res) => {
+                    console.log('9898resres',res)
+                    Taro.setStorageSync('loginCode', res.code)
+                }
+            })
+            //获取位置信息
+            Taro.authorize({
+                scope: 'scope.userLocation',
+                success: () => {}
+            })
+            // 获取实时位置
+            // Taro.authorize({
+            //     scope: 'scope.userLocationBackground',
+            //     success: () => {
+            //         Taro.startLocationUpdateBackground({
+            //             success: (res) => {
+            //                 console.log('9898什么啊',res)
+            //             }
+            //         })
+            //     }
+            // })
         }
-      })
-      console.log('98981116',Taro.getStorageSync('loginCode'))
-      
-      Taro.authorize({
-        scope: 'scope.userLocation',
-        success: () =>{
-          Taro.getLocation({
-            success:(aa)=>{
-              console.log('9898地址11',aa)
-            }
-          })
-        }
-      })
     }
-  }
 
-  componentDidShow () {}
+    componentDidShow() { }
 
-  componentDidHide () {}
+    componentDidHide() { }
 
-  componentDidCatchError () {}
+    componentDidCatchError() { }
 
-  // this.props.children 是将要会渲染的页面
-  render () {
-    return this.props.children
-  }
+    // this.props.children 是将要会渲染的页面
+    render() {
+        return this.props.children
+    }
 }
 
 export default App
