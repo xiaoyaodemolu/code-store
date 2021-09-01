@@ -7,12 +7,10 @@ let formatDate = function(date) {
 let login = function() {
     return new Promise((resolve,reject)=>{
         Taro.getUserProfile({
+            lang: 'zh_CN',
             desc: "获取信息哦",
             success: (res) => {
-                console.log('9898具体信息111e',res)
-                Taro.setStorageSync('userInfo', res.userInfo)
-                // info.name = res.userInfo.nickName
-                resolve(res)
+                resolve(res.result)
             },
             fail: (err)=> {
                 reject(err)
@@ -20,6 +18,7 @@ let login = function() {
         })
     })
 }
+//获取地址
 let getLocation = function() {
     return new Promise((resolve,reject)=>{
         Taro.getLocation({
@@ -27,9 +26,7 @@ let getLocation = function() {
                 Taro.request({
                     url: 'https://apis.map.qq.com/ws/geocoder/v1/?location='+res.latitude+','+res.longitude+'&key=AMABZ-3EQC3-UER3S-YWIT2-GWDU2-TUF3Y',
                     success: (res1)=>{
-                        console.log('9898真实地址222e',res1)
-                        // info.address = res1.data.result.address
-                        resolve(res1)
+                        resolve(res1.data.result)
                     }
                 })
             },
@@ -39,4 +36,53 @@ let getLocation = function() {
         })
     })
 }
-export default { formatDate, login, getLocation }
+//调用云函数
+let useCloudFunc = function(funcName,data) {
+    return new Promise((resolve,reject)=>{
+        Taro.cloud.callFunction({
+            name: funcName,
+            data: data
+        }).then(res=>{
+            resolve(res.result)
+        }).catch(err=>{
+            reject(err)
+        })
+    })
+}
+Taro.cloud.init({
+    env: 'cloud1-7gxpsw7i3b71f7cf'
+})
+let db = Taro.cloud.database() 
+//数据库新增数据
+let addData = function(dbName,data) {
+    return new Promise((resolve,reject)=>{
+        db.collection(dbName).add({
+            data
+        }).then(res=>{
+            resolve(res)
+        })
+    })
+}
+//数据库查询数据
+let searchData = function(dbName,params) {
+    return new Promise((resolve,reject)=>{
+        db.collection(dbName).where(params).get().then(res=>{
+            if(res.data.length>0){
+                resolve(res)
+            }else{
+                resolve(false)
+            }
+        })
+    })
+}
+//数据库更新数据
+let updateData = function(dbName,params,data) {
+    const _ = db.command
+    return new Promise((resolve,reject)=>{
+        db.collection(dbName).where(params).update({data}).then(res=>{
+            resolve(res)
+        })
+    })
+}
+
+export default { formatDate, login, getLocation, useCloudFunc, addData, searchData, updateData }

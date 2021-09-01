@@ -1,4 +1,3 @@
-import Taro from '@tarojs/taro'
 import { Component, useState } from 'react'
 import { View, Text, Button } from '@tarojs/components'
 import './index.scss'
