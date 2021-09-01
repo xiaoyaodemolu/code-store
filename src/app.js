@@ -1,4 +1,5 @@
 import Taro from '@tarojs/taro'
+import { View } from '@tarojs/components'
 import { Component } from 'react'
 import './app.scss'
 import utils from './utils/util'
@@ -42,15 +43,15 @@ class App extends Component {
             console.log('9898拿到个啥',isNewCustomer)
             //用户信息存入storage
             Taro.setStorageSync('userInfo', userInfo)
-            Taro.showActionSheet({
-                itemList: ['A', 'B', 'C'],
-                success (res) {
-                  console.log(res.tapIndex)
-                },
-                fail (res) {
-                  console.log(res.errMsg)
-                }
-              })
+            // Taro.showActionSheet({
+            //     itemList: ['A', 'B', 'C'],
+            //     success (res) {
+            //       console.log(res.tapIndex)
+            //     },
+            //     fail (res) {
+            //       console.log(res.errMsg)
+            //     }
+            //   })
         }
     }
 

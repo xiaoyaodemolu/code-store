@@ -1,5 +1,6 @@
 export default {
     pages: [
+        'pages/startPage/index',
         'pages/index/index',
         'pages/selfInfo/index'
     ],
@@ -43,6 +44,5 @@ export default {
         navigationBarBackgroundColor: '#93D3FF',
         navigationBarTitleText: 'Codes-Store',
         navigationBarTextStyle: 'black',
-        
     }
 }
