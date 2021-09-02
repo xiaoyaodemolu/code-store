@@ -68,7 +68,7 @@ let searchData = function(dbName,params) {
     return new Promise((resolve,reject)=>{
         db.collection(dbName).where(params).get().then(res=>{
             if(res.data.length>0){
-                resolve(res)
+                resolve(res.data)
             }else{
                 resolve(false)
             }

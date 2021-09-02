@@ -26,13 +26,7 @@ export default {
                 selectedIconPath: 'statics/tabBar/selfInfo.png',
                 pagePath: 'pages/selfInfo/index',
                 text: '我的'
-            }, 
-            // {
-            //     iconPath: 'resource/node.png',
-            //     selectedIconPath: 'resource/node_on.png',
-            //     pagePath: 'pages/nodes/nodes',
-            //     text: '节点'
-            // }
+            }
         ],
         'color': '#000',
         'selectedColor': '#00FF7F',
@@ -44,5 +38,6 @@ export default {
         navigationBarBackgroundColor: '#93D3FF',
         navigationBarTitleText: 'Codes-Store',
         navigationBarTextStyle: 'black',
+        navigationStyle: 'custom'
     }
 }

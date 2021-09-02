@@ -13,6 +13,7 @@ class App extends Component {
         }
     }
     async componentDidMount() {
+        console.log('1010111')
         if (process.env.TARO_ENV === 'weapp') {
             //初始化云函数
             Taro.cloud.init({
@@ -43,15 +44,6 @@ class App extends Component {
             console.log('9898拿到个啥',isNewCustomer)
             //用户信息存入storage
             Taro.setStorageSync('userInfo', userInfo)
-            // Taro.showActionSheet({
-            //     itemList: ['A', 'B', 'C'],
-            //     success (res) {
-            //       console.log(res.tapIndex)
-            //     },
-            //     fail (res) {
-            //       console.log(res.errMsg)
-            //     }
-            //   })
         }
     }
 
@@ -65,7 +57,6 @@ class App extends Component {
 
     // this.props.children 是将要会渲染的页面
     render() {
-        console.log('9898啥玩意',this.props.children)
         return this.props.children
     }
 }
