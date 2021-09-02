@@ -1,7 +1,7 @@
 export default {
     pages: [
-        'pages/startPage/index',
         'pages/index/index',
+        'pages/home/index',
         'pages/selfInfo/index'
     ],
     permission: {
@@ -18,7 +18,7 @@ export default {
             {
                 iconPath: 'statics/tabBar/codesStore.png',
                 selectedIconPath: 'statics/tabBar/codesStore.png',
-                pagePath: 'pages/index/index',
+                pagePath: 'pages/home/index',
                 text: 'Runners'
             }, 
             {
