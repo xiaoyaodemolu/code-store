@@ -9,10 +9,10 @@ export default function Index() {
     console.log('1010222')
     const [mark, setMark] = useState(false)
     const [modalName, setModalName] = useState('cu-modal')
-
+    const [customerInfo, setCustomerInfo] = useState({})
     useEffect(() => {
         fetchInfo()
-    }, [mark])
+    }, [mark, modalName, customerInfo])
     //包装异步，在useEffect中使用
     async function fetchInfo() {
         if (process.env.TARO_ENV === 'weapp') {
@@ -38,27 +38,45 @@ export default function Index() {
             if (newCustomer == false) {
                 //isSelectAddress是否选择学校的标识，也可作为判断是否为老用户的标识
                 Taro.isSelectAddress = false
+                setCustomerInfo(userInfo)
                 setModalName('cu-modal show')
                 // await utils.addData('customerInfo',userInfo)
             } else {
                 Taro.isSelectAddress = true
-                setModalName('cu-modal show')
+                //用户信息存入storage
+                Taro.setStorageSync('userInfo', userInfo)
+                utils.toUrl('/pages/home/index')
                 // await utils.updateData('customerInfo',{openid},{localAddress:'嘿嘿哈哈'})
             }
-            // //用户信息存入storage
-            Taro.setStorageSync('userInfo', userInfo)
-            console.log('9898拿到个啥', newCustomer)
         }
     }
-    const startGo = async() => {
-        await utils.addData('customerInfo',Taro.getStorageSync('userInfo'))
-        Taro.switchTab({
-            url: '/pages/home/index',
-        })
+    //没有？按钮函数
+    const noSchool = () => {
+        utils.toUrl('/pages/home/index')
+    }
+    //随便看看函数
+    const noLogin = () => {
+        Taro.setStorageSync('userInfo', customerInfo)
+        utils.toUrl('/pages/home/index')
+    }
+    //选择学校函数
+    const onChooseSchool = (e) => {
+        setCustomerInfo({...customerInfo,registerAddress:e.target.value})
+    }
+    //GO！函数
+    const startGo = async () => {
+        console.log('9898不走这？',customerInfo)
+        if(customerInfo.registerAddress==''){
+            console.log('9898没选学校')
+            return
+        }
+        Taro.setStorageSync('userInfo', customerInfo)
+        await utils.addData('customerInfo', customerInfo)
+        utils.toUrl('/pages/home/index')
     }
     return (
         <View>
-            <NavBar/>
+            <NavBar />
             {/* 新用户选择学校弹框 */}
             <View className={modalName}>
                 <View className="cu-dialog">
@@ -66,29 +84,21 @@ export default function Index() {
                         <View className="content">选择社区</View>
                     </View>
                     {/* <View className="padding-xl"> */}
-                    <RadioGroup className="block">
+                    <RadioGroup className="block" onChange={onChooseSchool}>
                         <View className="cu-list menu text-left">
-                            {['清华大学', '北京大学', '复旦大学', '南京大学', '西安交通大学'].map((item, i) => {
+                            {[{title:'清华大学',value:'qinghua'},{title:'北京大学',value:'beida'},{title:'复旦大学',value:'fudan'},{title:'南京大学',value:'nanda'},{title:'西安交通大学',value:'xijiaoda'}].map(item => {
                                 return (
-                                    <View className="cu-item" key={i}>
-                                        <View className="title">{item}</View>
-                                        <Radio className="blue radio"></Radio>
+                                    <View className="cu-item" key={item.value}>
+                                        <View className="title">{item.title}</View>
+                                        <Radio className="blue radio" value={item.value}></Radio>
                                     </View>
                                 )
                             })}
                         </View>
                     </RadioGroup>
-                    {/* </View> */}
-                    {/* <View className="cu-bar bg-white justify-end"> */}
-                    {/* <View className="cu-bar bg-white">
-                                <View className="action flex-sub">没有？</View>
-                                <Button className="action cu-btn flex-sub line-green text-green" bindtap="hideModal">随便看看</Button>
-                                <Button className="action cu-btn flex-sub bg-green margin-left" onClick={changeTime}>确定</Button>
-                           
-                    </View> */}
                     <View class="cu-bar bg-white">
-                        <View className="action margin-0 flex-sub text-cyan " onClick={startGo}>没有？</View>
-                        <View className="action margin-0 flex-sub text-grey solid-left" onClick={startGo}>随便看看</View>
+                        <View className="action margin-0 flex-sub text-cyan " onClick={noSchool}>没有？</View>
+                        <View className="action margin-0 flex-sub text-grey solid-left" onClick={noLogin}>随便看看</View>
                         <View className="action margin-0 flex-sub text-cyan solid-left" onClick={startGo}>GO!</View>
                     </View>
                 </View>

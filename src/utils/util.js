@@ -84,5 +84,11 @@ let updateData = function(dbName,params,data) {
         })
     })
 }
+//跳转页面
+let toUrl = function(url) {
+    Taro.switchTab({
+        url: url,
+    })
+}
 
-export default { formatDate, login, getLocation, useCloudFunc, addData, searchData, updateData }
+export default { formatDate, login, getLocation, useCloudFunc, addData, searchData, updateData, toUrl }
