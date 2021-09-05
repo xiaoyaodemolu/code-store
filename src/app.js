@@ -2,7 +2,6 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { Component } from 'react'
 import './app.scss'
-import utils from './utils/util'
 
 class App extends Component {
 
