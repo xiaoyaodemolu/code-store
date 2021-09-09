@@ -6,7 +6,6 @@ import NavBar from '@/components/Navbar/index'
 import utils from '@/utils/util'
 
 export default function Index() {
-    console.log('1010222')
     // const [mark, setMark] = useState(false)
     const [modalName, setModalName] = useState('cu-modal')
     const [customerInfo, setCustomerInfo] = useState({})

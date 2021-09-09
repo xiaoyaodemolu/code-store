@@ -1,7 +1,10 @@
 import Taro from '@tarojs/taro'
 import { axios } from 'taro-axios'
 
-const host = 'http://localhost:9898'
+//需要自己启后端用这个
+const host = process.env.NODE_ENV == 'production'?'http://82.157.124.108:8087':'http://127.0.0.19:8087'
+//需要连接云服务器用这个，一般最好别用这个
+// const host = 'http://82.157.124.108:8087'
 //格式化时间
 let formatDate = function (date) {
     return date.getFullYear() + '年' + (date.getMonth() + 1) + '月' + date.getDate() + '日 ' + date.getHours() + '时' + date.getMinutes() + '分' + date.getSeconds() + '秒'
