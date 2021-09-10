@@ -12,9 +12,6 @@ export default function NavBar() {
         left: ( Taro.navBarMarginLeft + 5 ) + 'px'
     }
     return (
-        // <View className='navbar' style={style}>
-        //     <View>自定义导航栏</View>
-        // </View>
         <Image src={home} className='navbar' style={style}/>
     )
 }

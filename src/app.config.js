@@ -2,7 +2,8 @@ export default {
     pages: [
         'pages/index/index',
         'pages/home/index',
-        'pages/selfInfo/index'
+        'pages/selfInfo/index',
+        'pages/write/index'
     ],
     permission: {
         "scope.userLocation": {
@@ -14,18 +15,25 @@ export default {
     },
     requiredBackgroundModes: ['location'],     //配合scope.userLocationBackground使用
     tabBar: {
+        custom: true,
         list: [
             {
                 iconPath: 'statics/tabBar/codesStore.png',
                 selectedIconPath: 'statics/tabBar/codesStore.png',
                 pagePath: 'pages/home/index',
-                text: 'Runners'
+                text: '流水'
+            },
+            {
+                iconPath: 'statics/tabBar/selfInfo.png',
+                selectedIconPath: 'statics/tabBar/selfInfo.png',
+                pagePath: 'pages/write/index',
+                text: ''
             }, 
             {
                 iconPath: 'statics/tabBar/selfInfo.png',
                 selectedIconPath: 'statics/tabBar/selfInfo.png',
                 pagePath: 'pages/selfInfo/index',
-                text: '我的'
+                text: '信息'
             }
         ],
         'color': '#000',
@@ -33,11 +41,12 @@ export default {
         'backgroundColor': '#93D3FF',
         'borderStyle': 'black'
     },
+    usingComponents: {},
     window: {
-        backgroundTextStyle: 'light',
-        navigationBarBackgroundColor: '#93D3FF',
-        navigationBarTitleText: 'Codes-Store',
-        navigationBarTextStyle: 'black',
+        // backgroundTextStyle: 'light',
+        // navigationBarBackgroundColor: '#93D3FF',
+        // navigationBarTitleText: 'Codes-Store',
+        // navigationBarTextStyle: 'black',
         navigationStyle: 'custom'
     }
 }

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { View, Text, Button, RadioGroup, Radio } from '@tarojs/components'
 import './index.scss'
 import NavBar from '@/components/Navbar/index'
+// import TabBar from '@/components/Tabbar/index'
 import utils from '@/utils/util'
 
 export default function Index() {
@@ -52,12 +53,12 @@ export default function Index() {
     }
     //没有？按钮函数
     const noSchool = () => {
-        utils.toUrl('/pages/home/index')
+        // utils.toUrl('/pages/home/index')
     }
     //随便看看函数
     const noLogin = () => {
         Taro.setStorageSync('userInfo', customerInfo)
-        utils.toUrl('/pages/home/index')
+        // utils.toUrl('/pages/home/index')
     }
     //选择学校函数
     const onChooseSchool = (e) => {
@@ -73,11 +74,12 @@ export default function Index() {
         console.log('9898没选学校')
         Taro.setStorageSync('userInfo', customerInfo)
         await utils.post('/userInfo_add', customerInfo)
-        utils.toUrl('/pages/home/index')
+        // utils.toUrl('/pages/home/index')
     }
     return (
         <View>
             <NavBar />
+            {process.env.NODE_ENV}
             {/* 新用户选择学校弹框 */}
             <View className={modalName}>
                 <View className="cu-dialog">
@@ -104,6 +106,9 @@ export default function Index() {
                     </View>
                 </View>
             </View>
+            
+            {/* 底部tabbar */}
+            {/* <TabBar/> */}
         </View>
         // <Image src='https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg'/>
     )

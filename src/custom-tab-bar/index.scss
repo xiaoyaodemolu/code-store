@@ -1,0 +1,61 @@
+// .tabbar {
+//     position: fixed;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//     background: red;
+// }
+
+
+.tabbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    // height: 50px;
+    height: 10%;
+    background: #FFF;
+    display: flex;
+    // justify-content: space-around;
+    // line-height: 50px;
+    // padding-bottom: 50px;
+    border-top: 1px solid #e6e6e6;
+  }
+  
+  .tabbar-item {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .tabbar-item .image {
+    width: 60px;
+    height: 60px;
+  }
+  .bulge {
+    background-color: #FFF;
+  }
+  .bulge .tabbar-bulge {
+    position: absolute;
+    z-index: -1;
+    top: -35px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border-top: 1px solid #e6e6e6;
+    background-color: #FFF;
+  }
+  .bulge .image{
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    top: -30px;
+    padding-top: 10px;
+  }
+  
+  .tabbar-item .tabbar-text {
+    font-size: 20px;
+  }
+  

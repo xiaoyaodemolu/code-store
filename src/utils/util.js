@@ -2,7 +2,7 @@ import Taro from '@tarojs/taro'
 import { axios } from 'taro-axios'
 
 //需要自己启后端用这个
-const host = process.env.NODE_ENV == 'production'?'http://82.157.124.108:8087':'http://127.0.0.19:8087'
+const host = process.env.NODE_ENV == 'development'?'http://127.0.0.19:8087':'http://82.157.124.108:8087'
 //需要连接云服务器用这个，一般最好别用这个
 // const host = 'http://82.157.124.108:8087'
 //格式化时间

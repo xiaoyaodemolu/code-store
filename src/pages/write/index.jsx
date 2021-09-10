@@ -8,7 +8,7 @@ export default function Index() {
   const [text, setText] = useState('点击。。')
   return (
     <View >
-      第一页
+      第二页
     </View>
   )
 }
