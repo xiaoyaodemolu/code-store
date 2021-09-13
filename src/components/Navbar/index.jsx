@@ -1,17 +1,17 @@
 import Taro from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
-import home from '@/statics/tabBar/home.png';
+import more from './images/more.png';
 import './index.scss'
 
 export default function NavBar() {
     const style = {
-        width: Taro.navBarHeight + 'px',
-        height: Taro.navBarHeight + 'px',
-        lineHeight: Taro.navBarLineHeight + 'px',
+        width: (Taro.navBarHeight-5) + 'px',
+        height: (Taro.navBarHeight-5) + 'px',
+        lineHeight: (Taro.navBarLineHeight-5) + 'px',
         top: Taro.navBarMarginTop + 'px',
         left: ( Taro.navBarMarginLeft + 5 ) + 'px'
     }
     return (
-        <Image src={home} className='navbar' style={style}/>
+        <Image src={more} className='navbar' style={style}/>
     )
 }

@@ -2,15 +2,16 @@ import Taro from '@tarojs/taro'
 import { useState, useEffect } from 'react'
 import { View, Text, Button, RadioGroup, Radio } from '@tarojs/components'
 import './index.scss'
-import NavBar from '@/components/Navbar/index'
-// import TabBar from '@/components/Tabbar/index'
 import utils from '@/utils/util'
 
-export default function Index() {
+export default function Start() {
     // const [mark, setMark] = useState(false)
     const [modalName, setModalName] = useState('cu-modal')
     const [customerInfo, setCustomerInfo] = useState({})
     useEffect(() => {
+        Taro.showLoading({
+            title: 'loading...'
+        })
         fetchInfo()
     }, [])
     //包装异步，在useEffect中使用
@@ -29,6 +30,9 @@ export default function Index() {
             //校验是否为新用户
             let newCustomer = await utils.post('/userInfo_search', { openid })
             console.log('新的查询', newCustomer)
+            setTimeout(function (){
+                Taro.hideLoading()
+              },500)
             // return
             if (newCustomer.data.userInfo == null) {
                 let userInfo = {
@@ -74,11 +78,10 @@ export default function Index() {
         console.log('9898没选学校')
         Taro.setStorageSync('userInfo', customerInfo)
         await utils.post('/userInfo_add', customerInfo)
-        // utils.toUrl('/pages/home/index')
+        utils.toUrl('/pages/home/index')
     }
     return (
         <View>
-            <NavBar />
             {process.env.NODE_ENV}
             {/* 新用户选择学校弹框 */}
             <View className={modalName}>

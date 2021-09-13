@@ -1,9 +1,9 @@
 export default {
     pages: [
-        'pages/index/index',
+        'pages/index/index', 
         'pages/home/index',
-        'pages/selfInfo/index',
-        'pages/write/index'
+        // 'pages/sendOrder/index',
+        // 'pages/message/index',
     ],
     permission: {
         "scope.userLocation": {
@@ -15,33 +15,43 @@ export default {
     },
     requiredBackgroundModes: ['location'],     //配合scope.userLocationBackground使用
     tabBar: {
+        selectedColor: "#3cc51f",
+        borderStyle: "black",
+        backgroundColor: "#ffffff",
         custom: true,
+        color: "#7A7E83",
         list: [
             {
-                iconPath: 'statics/tabBar/codesStore.png',
-                selectedIconPath: 'statics/tabBar/codesStore.png',
-                pagePath: 'pages/home/index',
+                iconPath: 'statics/tabBar/income.png',
+                selectedIconPath: 'statics/tabBar/income-select.png',
+                pagePath: 'pages/index/index',
                 text: '流水'
             },
             {
-                iconPath: 'statics/tabBar/selfInfo.png',
-                selectedIconPath: 'statics/tabBar/selfInfo.png',
-                pagePath: 'pages/write/index',
-                text: ''
-            }, 
-            {
-                iconPath: 'statics/tabBar/selfInfo.png',
-                selectedIconPath: 'statics/tabBar/selfInfo.png',
-                pagePath: 'pages/selfInfo/index',
-                text: '信息'
-            }
-        ],
-        'color': '#000',
-        'selectedColor': '#00FF7F',
-        'backgroundColor': '#93D3FF',
-        'borderStyle': 'black'
-    },
-    usingComponents: {},
+                iconPath: 'statics/tabBar/income.png',
+                selectedIconPath: 'statics/tabBar/income-select.png',
+                pagePath: 'pages/home/index',
+                text: '流水'
+            },
+            // {
+            //     heigher: true,
+            //     iconPath: 'statics/tabBar/post.png',
+            //     selectedIconPath: 'statics/tabBar/post-select.png',
+            //     pagePath: 'pages/sendOrder/index',
+            //     text: '添加'
+            // }, 
+            // {
+            //     iconPath: 'statics/tabBar/message.png',
+            //     selectedIconPath: 'statics/tabBar/message-select.png',
+            //     pagePath: 'pages/message/index',
+            //     text: '信息'
+            // }
+            ],
+            'color': '#000',
+            'selectedColor': '#00FF7F',
+            'backgroundColor': '#93D3FF',
+            'borderStyle': 'black'
+        },
     window: {
         // backgroundTextStyle: 'light',
         // navigationBarBackgroundColor: '#93D3FF',
