@@ -22,14 +22,14 @@ export default {
         color: "#7A7E83",
         list: [
             {
-                iconPath: 'statics/tabBar/income.png',
-                selectedIconPath: 'statics/tabBar/income-select.png',
+                // iconPath: 'statics/tabBar/income.png',
+                // selectedIconPath: 'statics/tabBar/income-select.png',
                 pagePath: 'pages/index/index',
                 text: '流水'
             },
             {
-                iconPath: 'statics/tabBar/income.png',
-                selectedIconPath: 'statics/tabBar/income-select.png',
+                // iconPath: 'statics/tabBar/income.png',
+                // selectedIconPath: 'statics/tabBar/income-select.png',
                 pagePath: 'pages/home/index',
                 text: '流水'
             },

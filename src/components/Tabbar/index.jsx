@@ -27,7 +27,7 @@ export default function TabBar(props) {
     }
     // 临时定义图片
     const list = [
-        { path: runner, selectedPath: runnerSelected, index: 0, bulge: false, text: 'runner' },
+        { path: runner, selectedPath: runnerSelected, index: 0, bulge: false, text: 'runners' },
         { path: sendorder, selectedPath: sendorderSelected, index: 1, bulge: true },
         { path: message, selectedPath: messageSelected, index: 2, bulge: false, text: '消息' }
     ]

@@ -5,37 +5,37 @@ import './index.scss'
 import NavBar from '@/components/Navbar/index'
 import TabBar from '@/components/Tabbar/index'
 import utils from '@/utils/util'
-import Runner from '@/components/runner/index'
+import Runners from '@/components/runners/index'
 import SendOrder from '@/components/sendOrder/index'
 import Message from '@/components/message/index'
 
 export default function Index() {
-  const [modalName, setModalName] = useState('')
-  const [showPage, setShowPage] = useState(0)
-  const [borderBottomLeftRadius, setBorderBottomLeftRadius] = useState('0')
-  const setStyle = () => {
-    setModalName('')
-    setBorderBottomLeftRadius('0')
-  }
-  const navBarFunc = () => {
-    setModalName('viewModal')
-    setBorderBottomLeftRadius('35px')
-  }
-  return (
-    <View>
-      <View className= {'DrawerPage'+(modalName=='viewModal'?' show':'')}>
-        <View onClick={navBarFunc}>
-          <NavBar/>
+    const [modalName, setModalName] = useState('')
+    const [showPage, setShowPage] = useState(0)
+    const [borderBottomLeftRadius, setBorderBottomLeftRadius] = useState('0')
+    const setStyle = () => {
+        setModalName('')
+        setBorderBottomLeftRadius('0')
+    }
+    const navBarFunc = () => {
+        setModalName('viewModal')
+        setBorderBottomLeftRadius('35px')
+    }
+    return (
+        <View>
+            <View className={'DrawerPage bg-gradual-gradualCyanBlue' + (modalName == 'viewModal' ? ' show' : '')}>
+                <View onClick={navBarFunc}>
+                    <NavBar />
+                </View>
+                {showPage == 0 ? <Runners /> : (showPage == 1 ? <SendOrder /> : <Message />)}
+                <TabBar borderBottomLeftRadius={borderBottomLeftRadius} setShowPage={setShowPage} />
+            </View>
+            <View className={'DrawerClose' + (modalName == 'viewModal' ? ' show' : '')} onClick={setStyle}>
+                <Text className="cuIcon-pullright"></Text>
+            </View>
+            <View style={{ marginTop: '300px' }} className={'DrawerWindow' + (modalName == 'viewModal' ? ' show' : '')}>
+                我是副页
+            </View>
         </View>
-        {showPage==0?<Runner/>:(showPage==1?<SendOrder/>:<Message/>)}
-        <TabBar borderBottomLeftRadius={borderBottomLeftRadius} setShowPage={setShowPage}/>
-      </View>
-      <View className= {'DrawerClose'+(modalName=='viewModal'?' show':'')} onClick={setStyle}>
-			  <Text className="cuIcon-pullright"></Text>
-		  </View>
-      <View style={{marginTop:'300px'}} className={'DrawerWindow'+(modalName=='viewModal'?' show':'')}>
-        我是副页
-      </View>
-    </View>
-  )
+    )
 }
