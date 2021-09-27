@@ -56,7 +56,7 @@ export default {
         // backgroundTextStyle: 'light',
         // navigationBarBackgroundColor: '#93D3FF',
         // navigationBarTitleText: 'Codes-Store',
-        // navigationBarTextStyle: 'black',
+        // navigationBarTextStyle: 'white',
         navigationStyle: 'custom'
     }
 }

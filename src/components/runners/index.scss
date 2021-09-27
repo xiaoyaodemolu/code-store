@@ -1,47 +1,74 @@
-.overflowauto{
-    overflow: auto;
-}
-.runnersContent{
-    background: #F1F1F1;
-    height: 100%;
-    color: red;
+.searchbar {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 2;
+    background: linear-gradient(to right, #3EA1A7 , #46B5AF);
+  }
+.searchborder {
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
-    position: relative;
-    // overflow: auto;
+  }
+.scrollcontents {
+    z-index: 1;
+    background-color: #EDEDED;
+    color: #000000;
+    min-height: 60%;
+    padding: 15px;
 }
-.inputshadow{
-    position: sticky;
-    top: 0rpx;
+.addheight {
+    height: 90%;
+}
+.goodsitem {
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 15px;
+    height: 200px;
     display: flex;
-    // width: 100%;
-	align-items: center;
-	min-height: 120rpx;
     justify-content: space-between;
-    .search-form {
-        background-color: #f5f5f5;
-        line-height: 80rpx;
-        height: 80rpx;
-        font-size: 26rpx;
-        color: var(--black);
-        flex: 1;
-        display: flex;
-        align-items: center;
-        margin: 0 30rpx;
-        input {
-            flex: 1;
-            padding-right: 30rpx;
-            height: 80rpx;
-            line-height: 80rpx;
-            font-size: 28rpx;
-            background-color: transparent;
-        }
-        box-shadow: 0 0 15rpx rgba(0, 0, 0, 0.1);
+}
+.goodsimg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    Image{
+        box-shadow: 15px 10px 30px #474545;
+        width: 170px;
+        height: 150px;
+        border-radius: 10px;
     }
 }
-.orders{
-    height: 100%;
-    // overflow: auto;
-    position: absolute;
-    top: 120rpx
+.goodsdesc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 25px;
+    color: #9E9E9E;
+}
+.storename {
+    color: #000000;
+    font-size: 30px;
+    font-weight: bold;
+    width:300px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.goodsmoney {
+    width: 150px;
+    padding: 15px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-shadow: 10px 15px 15px #000000;
+    Image{
+        width: 55px;
+        height: 55px;
+    }
+}
+.deal{
+    width: 20px;
+    height: 20px;
 }
