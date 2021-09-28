@@ -11,7 +11,6 @@ export default function NavBar() {
         top: Taro.navBarMarginTop + 'px',
         left: ( Taro.navBarMarginLeft + 5 ) + 'px'
     }
-    console.log('9898se',style)
     return (
         <Image src={more} className='navbar' style={style}/>
     )

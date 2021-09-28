@@ -1,9 +1,16 @@
+.swiperVip{
+    background-color: #ffffff;
+    // border: 1px solid white;
+    color:  #ffffff;
+    height: 100%;
+    opacity: 0.2;
+}
 .searchbar {
     position: sticky;
     position: -webkit-sticky;
     top: 0;
     z-index: 2;
-    background: linear-gradient(to right, #3EA1A7 , #46B5AF);
+    background: linear-gradient(to right, #53A1EA , #70B1EC);
   }
 .searchborder {
     border-top-left-radius: 50px;

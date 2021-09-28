@@ -10,7 +10,6 @@ import message from './images/message.png'
 import messageSelected from './images/message-selected.png'
 
 export default function TabBar(props) {
-    console.log('9898props',props)
     const [selected, setSelected] = useState(0)
     const [animation, setAnimation] = useState('')
 

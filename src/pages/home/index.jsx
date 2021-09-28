@@ -25,7 +25,7 @@ export default function Index() {
         <View>
             <View className={'DrawerPage bg-gradual-gradualCyanBlue' + (modalName == 'viewModal' ? ' show' : '')}>
                 <View onClick={navBarFunc}>
-                    <NavBar />
+                    <NavBar/>
                 </View>
                 {showPage == 0 ? <Runners /> : (showPage == 1 ? <SendOrder /> : <Message />)}
                 <TabBar borderBottomLeftRadius={borderBottomLeftRadius} setShowPage={setShowPage} />

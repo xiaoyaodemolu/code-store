@@ -194,18 +194,13 @@ export default function Index() {
             refresherEnabled={true} 
             refresherThreshold={200}
         >
-            {/* <Slot name='refresher' id='refresh-container' className='refresh-container'>
-                <View>
-                    我是自定义刷新动画
-                </View>
-            </Slot> */}
             <View>
                 <Swiper id="card-swiper" className="card-swiper" circular={true} autoplay={true} interval={5000} current={cardCur} duration={500} onChange={(e) => setCardCur(e.target.current)}>
                     {imgList.map((item, index) => {
                         return (
                             <SwiperItem className={cardCur == index ? 'cur' : ''}>
-                                <View className="swiper-item">
-                                    <Image src={item.url} mode="aspectFill"></Image>
+                                <View className="swiper-item swiperVip shadow-blur">
+                                    <View>头部</View>
                                 </View>
                             </SwiperItem>
                         )
@@ -234,7 +229,7 @@ export default function Index() {
                                         {item.storeName}
                                     </View>
                                     <View>
-                                        <Text style={{ color: '#44B2AD', fontSize: '18px' }} className='iconfont'>&#xe64f;</Text>
+                                        <Text style={{ color: '#73B2EC', fontSize: '18px' }} className='iconfont'>&#xe64f;</Text>
                                         {item.orderTotal}
                                     </View>
                                     <View>
@@ -244,12 +239,12 @@ export default function Index() {
                                         <Text style={{ color: 'red' }}>{item.goodsPrice}</Text>
                                         <Text>元</Text>
                                     </View>
-                                    <View style={{ color: '#44B2AD' }}>更多。。。<Text style={{ fontSize: '14px' }} className='iconfont'>&#xe62d;</Text></View>
+                                    <View style={{ color: '#73B2EC' }}>更多。。。<Text style={{ fontSize: '14px' }} className='iconfont'>&#xe62d;</Text></View>
                                 </View>
                                 <View className='goodsmoney'>
                                     <View>
                                         <Image src={coin} />
-                                        <Text style={{ color: '#44B2AD', fontSize: '20px' }}>{item.price}</Text>
+                                        <Text style={{ color: '#73B2EC', fontSize: '20px' }}>{item.price}</Text>
                                     </View>
                                     <View>
                                         {/* <Text style={{ fontSize: '30px', color: '#4DC4B5' }} className='iconfont'>&#xe86f;</Text> */}
