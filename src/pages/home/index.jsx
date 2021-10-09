@@ -10,6 +10,10 @@ import SendOrder from '@/components/sendOrder/index'
 import Message from '@/components/message/index'
 
 export default function Index() {
+    const style = {
+        marginTop: (Taro.navBarLineHeight + Taro.navBarMarginTop) + 'px',
+        height: '81%',
+    }
     const [modalName, setModalName] = useState('')
     const [showPage, setShowPage] = useState(0)
     const [borderBottomLeftRadius, setBorderBottomLeftRadius] = useState('0')
@@ -27,7 +31,7 @@ export default function Index() {
                 <View onClick={navBarFunc}>
                     <NavBar/>
                 </View>
-                {showPage == 0 ? <Runners /> : (showPage == 1 ? <SendOrder /> : <Message />)}
+                {showPage == 0 ? <Runners style={style}/> : (showPage == 1 ? <SendOrder /> : <Message style={style}/>)}
                 <TabBar borderBottomLeftRadius={borderBottomLeftRadius} setShowPage={setShowPage} />
             </View>
             <View className={'DrawerClose' + (modalName == 'viewModal' ? ' show' : '')} onClick={setStyle}>

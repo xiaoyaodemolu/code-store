@@ -107,7 +107,8 @@ const goodsList1 = [
         orderTotal: 19
     },
 ]
-export default function Index() {
+export default function Index(props) {
+    console.log('9898props样式',props)
     const [cardCur, setCardCur] = useState(0)
     const [goodsList, setGoodsList] = useState([])
     const [triggered, setTriggered] = useState(false)
@@ -144,11 +145,6 @@ export default function Index() {
         type: 'image',
         url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
     }]
-    const style = {
-        marginTop: (Taro.navBarLineHeight + Taro.navBarMarginTop) + 'px',
-        // overflow: 'auto',
-        height: '81%',
-    }
 
     const aa = () => {
         console.log('9898到底了到底了')
@@ -172,7 +168,7 @@ export default function Index() {
     }
     return (
         <ScrollView
-            style={style} 
+            style={props.style} 
             scrollY 
             // onScrollToLower={aa} 
             // onScrollToUpper={bb} 

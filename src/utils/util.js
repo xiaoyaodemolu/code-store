@@ -16,7 +16,7 @@ let login = function () {
             lang: 'zh_CN',
             desc: "获取信息哦",
             success: (res) => {
-                resolve(res.result)
+                resolve(res.userInfo)
             },
             fail: (err) => {
                 reject(err)

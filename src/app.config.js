@@ -7,11 +7,11 @@ export default {
     ],
     permission: {
         "scope.userLocation": {
-            desc: "你的位置信息将用于小程序位置接口的效果展示" // 高速公路行驶一次后台定位
+            desc: "你的位置信息将用于小程序位置接口的效果展示"
         },
-        // "scope.userLocationBackground": {
-        //     desc: "你的位置信息将用于小程序位置接口的效果展示实时的" // 高速公路行驶持续后台定位
-        // }
+        "scope.getUserProfile": {
+            desc: "你的基本信息将用于小程序位置接口的效果展示"
+        },
     },
     requiredBackgroundModes: ['location'],     //配合scope.userLocationBackground使用
     tabBar: {

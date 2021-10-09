@@ -19,7 +19,7 @@ export default function Start() {
         if (process.env.TARO_ENV === 'weapp') {
             //初始化云函数
             Taro.cloud.init({
-                env: 'cloud1-7gxpsw7i3b71f7cf'
+                env: 'runners-5g9pog2o5a12d16a'
             })
             //时间
             let date = utils.formatDate(new Date())
