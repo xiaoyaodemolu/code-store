@@ -1,14 +1,21 @@
 import Taro from '@tarojs/taro'
 import { useState, useEffect } from 'react'
-import { View, Text, Button } from '@tarojs/components'
+import { View, Text, Button, ScrollView } from '@tarojs/components'
 import './index.scss'
 
-export default function Index() {
+export default function Index(props) {
+    const style1 = {
+        height:'100%',
+        paddingTop:props.style.marginTop,
+        paddingBottom: '20%',
+        backgroundColor: '#ffffff'
+    }
+    const style2 = {
+        height:'100%',
+        overflow: 'auto',
+        padding: '10px'
+    }
   const payFunc = () => {
-    // Taro.requestPayment({
-    //   timeStamp: new Date().getTime(),
-
-    // })
     let data = {
       openid: Taro.getStorageSync('userInfo').openid,
       money: 0.1
@@ -37,11 +44,23 @@ export default function Index() {
         })
       }
     })
-
   }
   return (
-    <View style={{ marginTop: '100px' }}>
-      <Button onClick={payFunc}>发起支付</Button>
+    <View style={style1}>
+        <View style={style2}>
+            {/* <Button onClick={payFunc}>发起支付</Button> */}
+            <View className='ordercard'>
+                <View className='lm'></View>
+                <View className='rm'></View>
+                <View className='dashborder'></View>
+                <View className='ordertitle'>
+
+                </View>
+                <View className='ordercontent'>
+
+                </View>
+            </View>
+        </View>
     </View>
   )
 }

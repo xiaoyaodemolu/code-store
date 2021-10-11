@@ -1,0 +1,48 @@
+.ordercard{
+    position: relative;
+    height: 96%;
+    .dashborder{
+        position: absolute;
+        top: 20%;
+        left: 13%;
+        height: 35px;
+        width: 74%;
+        border-bottom: 8px dashed #ffffff;
+    }
+    .lm{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        top: 20%;
+        background-color: #ffffff;
+        width: 35px;
+        height: 70px;
+        border-top-right-radius: 35px;
+        border-bottom-right-radius: 35px;
+    }
+    .rm{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        top: 20%;
+        background-color: #ffffff;
+        width: 35px;
+        height: 70px;
+        border-top-left-radius: 35px;
+        border-bottom-left-radius: 35px;
+    }
+}
+.ordertitle{
+    height: 20%;
+    // background-color: #EDEDED;
+    background-color: #D3D8DF;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+.ordercontent{
+    height: 80%;
+    // background-color: #EDEDED;
+    background-color: #D3D8DF;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}

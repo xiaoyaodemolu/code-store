@@ -7,6 +7,7 @@ import utils from '@/utils/util'
 export default function Start() {
     // const [mark, setMark] = useState(false)
     const [modalName, setModalName] = useState('cu-modal')
+    const [schoolValue, setSchoolValue] = useState('')
     const [customerInfo, setCustomerInfo] = useState({})
     useEffect(() => {
         Taro.showLoading({
@@ -30,9 +31,9 @@ export default function Start() {
             //校验是否为新用户
             let newCustomer = await utils.post('/userInfo_search', { openid })
             console.log('新的查询', newCustomer)
-            setTimeout(function (){
+            setTimeout(function () {
                 Taro.hideLoading()
-              },500)
+            }, 500)
             // return
             if (newCustomer.data.userInfo == null) {
                 let userInfo = {
@@ -65,8 +66,9 @@ export default function Start() {
         // utils.toUrl('/pages/home/index')
     }
     //选择学校函数
-    const onChooseSchool = (e) => {
-        setCustomerInfo({ ...customerInfo, registerAddress: e.target.value })
+    const onChooseSchoolItem = (value) => {
+        setSchoolValue(value)
+        setCustomerInfo({ ...customerInfo, registerAddress: value })
     }
     //GO！函数
     const startGo = async () => {
@@ -90,13 +92,13 @@ export default function Start() {
                         <View className="content">选择社区</View>
                     </View>
                     {/* <View className="padding-xl"> */}
-                    <RadioGroup className="block" onChange={onChooseSchool}>
-                        <View className="cu-list menu text-left">
-                            {[{ title: '清华大学', value: 'qinghua' }, { title: '北京大学', value: 'beida' }, { title: '复旦大学', value: 'fudan' }, { title: '南京大学', value: 'nanda' }, { title: '西安交通大学', value: 'xijiaoda' }].map(item => {
+                    <RadioGroup className="block">
+                        <View className="cu-list menu text-left" style={{height:'350px',overflow:'auto'}}>
+                            {[{ title: '清华大学', value: 'qinghua' }, { title: '北京大学', value: 'beida' }, { title: '复旦大学', value: 'fudan' }, { title: '南京大学', value: 'nanda' }, { title: '西安交通大学', value: 'xijiaoda' }, { title: '太原理工大学', value: 'taiyuanligong' }, { title: '山西大学', value: 'shanxidaxue' }, { title: '太原科技大学', value: 'taiyuankejidaxue' }].map(item => {
                                 return (
-                                    <View className="cu-item" key={item.value}>
+                                    <View className="cu-item" key={item.value} onClick={()=>onChooseSchoolItem(item.value)}>
                                         <View className="title">{item.title}</View>
-                                        <Radio className="blue radio" value={item.value}></Radio>
+                                        <Radio className="radio" value={item.value} checked={schoolValue==item.value?true:false}></Radio>
                                     </View>
                                 )
                             })}
@@ -109,7 +111,7 @@ export default function Start() {
                     </View>
                 </View>
             </View>
-            
+
             {/* 底部tabbar */}
             {/* <TabBar/> */}
         </View>
