@@ -31,7 +31,16 @@ export default function Index() {
                 <View onClick={navBarFunc}>
                     <NavBar/>
                 </View>
-                {showPage == 0 ? <Runners style={style}/> : (showPage == 1 ? <SendOrder style={style}/> : <Message style={style}/>)}
+                <View style={{display: showPage == 0 ? 'inline' : 'none'}}>
+                    <Runners style={style}/>
+                </View>
+                <View style={{display: showPage == 1 ? 'inline' : 'none'}}>
+                    <SendOrder style={style}/>
+                </View>
+                <View style={{display: showPage == 2 ? 'inline' : 'none'}}>
+                    <Message style={style}/>
+                </View>
+                {/* {showPage == 0 ? <Runners style={style}/> : (showPage == 1 ? <SendOrder style={style}/> : <Message style={style}/>)} */}
                 <TabBar borderBottomLeftRadius={borderBottomLeftRadius} setShowPage={setShowPage} />
             </View>
             <View className={'DrawerClose' + (modalName == 'viewModal' ? ' show' : '')} onClick={setStyle}>
